@@ -1,0 +1,91 @@
+import os
+import json
+
+file_path = "config.json"
+
+KEYS = None
+TEMP_DIR = None
+AUTHOR = None
+LEVEL = None
+RANDOM = None
+RANDOM_NOTE_TYPE = None
+RANDOM_NOTE_PROBABILITIES = None
+RANDOM_STAR_TAIL_HIT_DETECT = None
+RANDOM_STAR_TAIL_HIT_DETECT_DELETE_NOTE_INSTANTLY = None
+RANDOM_STAR_TAIL_HIT_DETECT_DELETE_DELAY = None
+RANDOM_STAR_TAIL_HIT_DETECT_EX_DELAY = None
+RANDOM_STAR_DURATION_MIN = None
+RANDOM_STAR_DURATION_MAX = None
+RANDOM_STAR_DELAY = None
+RANDOM_TOUCH_HOLD_DURATION_MIN = None
+RANDOM_TOUCH_HOLD_DURATION_MAX = None
+RANDOM_TOUCH_HOLD_DELAY = None
+RANDOM_CONSEQUENT_KEYS_ENABLE = None
+RANDOM_CONSEQUENT_KEYS_DURATION_MIN = None
+RANDOM_CONSEQUENT_KEYS_DURATION_MAX = None
+RANDOM_CONSEQUENT_KEYS = None
+SAME = None
+ONGEKI = None
+ONGEKI_KEYS = None
+
+temp_consequent_keys_list = []
+
+default_content = {
+    "KEYS": [
+        [],
+        [],
+        [8, 7, 6, 5, 4, 3, 2, 1],
+        [],
+        # [6, 5, 4, 3],
+        [8, 7, 6, 5, 4, 3, 2, 1],
+        [],
+        [7, 6, 5, 4, 3, 2],
+        [8, 7, 6, 5, 4, 3, 2],
+        [8, 7, 6, 5, 4, 3, 2, 1]
+    ],
+    "TEMP_DIR": "./tmp",
+    "AUTHOR": "OSU2Simai",
+    "LEVEL": 13,
+    "RANDOM": 0,
+    "SAME": True,
+    "ONGEKI": False,
+    "ONGEKI_KEYS": [
+        -16, -10, -4, 4, 10, 16
+    ]
+}
+
+if not os.path.exists(file_path):
+    with open(file_path, 'w') as f:
+        json.dump(default_content, f, indent=2)
+    print(f"Config file '{file_path}' created with default content.")
+else:
+    print(f"Config file '{file_path}' already exists.")
+
+with open('config.json', 'r') as f:
+    config = json.load(f)
+    print(config)
+
+KEYS = config["KEYS"]
+TEMP_DIR = config["TEMP_DIR"]
+AUTHOR = config["AUTHOR"]
+LEVEL = config["LEVEL"]
+RANDOM = config["RANDOM"]
+RANDOM_NOTE_TYPE = config["RANDOM_NOTE_TYPE"]
+RANDOM_NOTE_PROBABILITIES = config["RANDOM_NOTE_PROBABILITIES"]
+RANDOM_STAR_TAIL_HIT_DETECT = config["RANDOM_STAR_TAIL_HIT_DETECT"]
+RANDOM_STAR_TAIL_HIT_DETECT_DELETE_NOTE_INSTANTLY = config["RANDOM_STAR_TAIL_HIT_DETECT_DELETE_NOTE_INSTANTLY"]
+RANDOM_STAR_TAIL_HIT_DETECT_DELETE_DELAY = config["RANDOM_STAR_TAIL_HIT_DETECT_DELETE_DELAY"]
+RANDOM_STAR_TAIL_HIT_DETECT_EX_DELAY = config["RANDOM_STAR_TAIL_HIT_DETECT_EX_DELAY"]
+RANDOM_STAR_DURATION_MIN = config["RANDOM_STAR_DURATION_MIN"]
+RANDOM_STAR_DURATION_MAX = config["RANDOM_STAR_DURATION_MAX"]
+RANDOM_STAR_DELAY = config["RANDOM_STAR_DELAY"]
+RANDOM_TOUCH_HOLD_DURATION_MIN = config["RANDOM_TOUCH_HOLD_DURATION_MIN"]
+RANDOM_TOUCH_HOLD_DURATION_MAX = config["RANDOM_TOUCH_HOLD_DURATION_MAX"]
+RANDOM_TOUCH_HOLD_DELAY = config["RANDOM_TOUCH_HOLD_DELAY"]
+RANDOM_CONSEQUENT_KEYS_ENABLE = config["RANDOM_CONSEQUENT_KEYS_ENABLE"]
+RANDOM_CONSEQUENT_KEYS_DURATION_MIN = config["RANDOM_CONSEQUENT_KEYS_DURATION_MIN"]
+RANDOM_CONSEQUENT_KEYS_DURATION_MAX = config["RANDOM_CONSEQUENT_KEYS_DURATION_MAX"]
+RANDOM_CONSEQUENT_KEYS = config["RANDOM_CONSEQUENT_KEYS"]
+SAME = config["SAME"]
+ONGEKI = config["ONGEKI"]
+ONGEKI_KEYS = config["ONGEKI_KEYS"]
